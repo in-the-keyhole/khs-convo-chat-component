@@ -9,7 +9,7 @@ export default class MessageBox extends React.Component {
 	render() {
 		return (
 			<div>
-				<input type="test" className="message-box-text"/>
+				<input type="test" className="message-box-text" />
 				<button onClick={this.sendMessage} className="message-box-button">Send</button>
 			</div>
 		);
