@@ -27,7 +27,9 @@
 }
 
 .message-board-mid {
-  min-height: 300px;
+  height: 300px;
+  overflow: scroll;
+  overflow-y: auto;
 }
 
 .message-time {
@@ -44,7 +46,7 @@
   justify-content: space-between;
 }
 
-.message-msg-right {
+.message-msg-left {
   color: #f1f1f1;
   background: blue;
   padding: 0.25rem;
@@ -53,7 +55,7 @@
   border-radius: 4px;
 }
 
-.message-msg-left {
+.message-msg-right {
   color: #1f1f1f;
   background: #c3c3c3;
   padding: 0.25rem;

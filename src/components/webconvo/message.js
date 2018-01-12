@@ -3,7 +3,6 @@ import React from 'react';
 export default class Messsage extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log('created message');
 	}
 
 	static defaultProps = {
@@ -13,7 +12,6 @@ export default class Messsage extends React.Component {
 	};
 
 	getClassNameByMessageType(type) {
-		console.log(type);
 		if(type === 'msg'){
 			return "message-msg-right";
 		}else{
