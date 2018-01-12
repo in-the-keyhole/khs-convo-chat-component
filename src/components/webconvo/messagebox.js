@@ -23,7 +23,7 @@ export default class MessageBox extends React.Component {
 	sendMessage() {
 		var date = new Date();
 
-		var dateString = Math.abs(date.getHours() - 12) + ":" + date.getMinutes();
+		var dateString = Math.abs(date.getHours() - 12) + ":" + ("0" + date.getMinutes()).slice(-2);
 		if (date.getHours() > 12) {
 			dateString += " pm";
 		} else {
