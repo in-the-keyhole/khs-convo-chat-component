@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app';
+import WebConvo from './components/webconvo/webconvo';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<WebConvo containerWidth={""} myPhoneNumber={""} theirPhoneNumber={""} />, document.getElementById("root"));

@@ -1,76 +1,73 @@
 import React from 'react';
-import MessageBoard from './messageboard';
-import MessageBox from './messagebox';
+import { Ajax } from '../../services/ajax/ajax';
+import MessageBoard from '../messageboard/messageboard';
+import MessageBox from '../messagebox/messagebox';
+import PhoneNumbersModal from '../phonenumbersmodal/phonenumbersmodal';
 import './webconvo.css';
-import axios from 'axios';
 
 export default class WebConvo extends React.Component {
 	constructor(props) {
 		super(props);
-		axios.defaults.headers.post['Content-Type'] = 'application/json';
 		this.state = {
-			messages: []
-		};
-
-		this.requestMessage = this.requestMessage.bind(this);
-		this.displayMessage = this.displayMessage.bind(this);
+			displayPhoneNumbersModal: false,
+			messages: [],
+            myPhoneNumber: this.props.myPhoneNumber || '800-555-1234',
+			theirPhoneNumber: this.props.theirPhoneNumber || 'Keyhole Software',
+        };
 	}
 
-	displayMessage(message) {
+	addPhoneNumberButtonPressed = () => {
+		this.setState({ displayPhoneNumbersModal: true });
+	};
+
+	closePhoneNumbersModal = () => {
+		this.setState({ displayPhoneNumbersModal: false });
+	};
+
+	displayMessage = message => {
 		this.state.messages.push(message);
-
 		this.setState({ messages: this.state.messages });
-	}
+	};
 
-	requestMessage(message) {
-		this.displayMessage(message);
-		var obj = {
-			method: 'post',
-			url: this.props.url,
-			data: {
-				"Body": message.message,
-				"From": '',
-				"Status": "admin",
-				"To": ""
-			}
+	postMessage = (message, cb) => {
+		const payload = {
+			Body: message,
+			From: this.state.myPhoneNumber,
+			To: this.state.theirPhoneNumber,
 		};
-		var self = this;
-		axios(obj)
-			.then(function (response) {
-				var resp = response.data.replace('<?xml version="1.0" encoding="UTF-8"?>', '');
-				resp = resp.replace('<Response>', '');
-				resp = resp.replace('</Response>', '');
-				resp = resp.replace('<Message>', '');
-				resp = resp.replace('</Message>', '');
-				var date = new Date();
-
-				var dateString = Math.abs(date.getHours() - 12) + ":" + ("0" +date.getMinutes()).slice(-2);
-				if (date.getHours() > 12) {
-					dateString += " pm";
-				} else {
-					dateString += " am";
-				}
-				self.displayMessage({ message: resp, type: 'server', time: dateString });
-
+	  	Ajax.postFreeText(payload)
+			.then(res => {
+				const m = res.data.documentElement.childNodes[0].childNodes[0].nodeValue;
+				const newMessage = {
+					Body: m,
+					From: this.state.myPhoneNumber,
+					To: this.state.theirPhoneNumber,
+				};
+				this.state.messages.push(newMessage);
+				this.setState({ messages: this.state.messages });
+				cb(true);
 			})
-			.catch(function (error) {
+			.catch(_ => {
+				cb(false);
 			});
-	}
+	};
 
 	render() {
 		return (
-			<div className="webconvo">
-				<div>
-					<span className="webconvo-title">WebConvo</span><br></br>
-					<span className="keyhole">by Keyhole Software</span>
-					<hr></hr>
+			<div className="webconvo" style={{ width: this.props.containerWidth }}>
+				<div className="webconvoheader">
+					<div className="webconvoheadersidecont"></div>
+					<h3 className="webconvoheadername">{this.state.theirPhoneNumber}</h3>
+					<div className="webconvoheadersidecont webconvoheaderbuttoncont">
+						{/*<button type="button" className="webconvoheaderbutton" onClick={this.addPhoneNumberButtonPressed}>+</button>*/}
+					</div>
+				</div>
+				<div className="messagescont" style={{ position: 'relative' }}>
+					<MessageBoard messages={this.state.messages} myPhoneNumber={this.state.myPhoneNumber} />
+					<PhoneNumbersModal isVisible={this.state.displayPhoneNumbersModal} closeMe={this.closePhoneNumbersModal} />
 				</div>
 				<div>
-					<MessageBoard messages={this.state.messages} />
-				</div>
-				<hr></hr>
-				<div>
-					<MessageBox requestMessage={this.requestMessage} />
+					<MessageBox postMessage={this.postMessage} />
 				</div>
 			</div>
 		);

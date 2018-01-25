@@ -1,0 +1,27 @@
+.messageboxcont {
+    background-color: lightsteelblue;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top: 1px solid darkgrey;
+    display: flex;
+}
+
+.messageboxinput {
+    border: 1px solid darkgrey;
+    flex-grow: 1;
+    font-size: 1em;
+    height: 30px;
+    line-height: 25px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 0 5px;
+}
+
+.messageboxbutton {
+    background-color: transparent;
+    border: none;
+    color: rgb(21,49,79);
+    font-size: 1em;
+    margin: 10px;
+}

@@ -1,0 +1,60 @@
+.messagecont {
+    margin: 20px 0;
+}
+
+.messagetextcont {
+    border-radius: 8px;
+    max-width: 45%;
+}
+
+.fromme {
+    justify-content: flex-end;
+}
+
+.frommetext {
+    background-color: rgb(21, 49, 79);
+    color: white;
+    margin-right: 12px;
+}
+
+.fromyou {
+    justify-content: flex-start;
+}
+
+.fromyoutext {
+    background-color: gainsboro;
+    margin-left: 12px;
+}
+
+.messagetext {
+    margin: 8px;
+}
+
+.messagetextfauxcont, .messageshorttextfauxcont {
+    display: flex;
+    position: relative;
+}
+
+.messagetextfauxcont:after {
+    border: 20px solid transparent;
+    border-bottom: 0;
+    bottom: 0;
+    content: '';
+    height: 0;
+    margin-bottom: -18px;
+    margin-left: -10px;
+    position: absolute;
+    width: 0;
+}
+
+.messagetextfauxcont.fromme:after {
+    border-right: 0;
+    border-top-color: rgb(21, 49, 79);
+    right: 15px;
+}
+
+.messagetextfauxcont.fromyou:after {
+    border-left: 0;
+    border-top-color: gainsboro;
+    left: 15px;
+}

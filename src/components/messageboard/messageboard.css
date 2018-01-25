@@ -1,0 +1,8 @@
+.messageboardcont {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    max-height: 450px;
+    min-height: 50px;
+    overflow-y: scroll;
+}

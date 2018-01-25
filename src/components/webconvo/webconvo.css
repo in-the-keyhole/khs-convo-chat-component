@@ -1,87 +1,44 @@
 .webconvo {
-  background: #E6E6E6;
-  padding: 8px;
-  border-radius: 8px;
-  border: 2px solid #e1e1e1;
-  min-width: 400px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: 1px solid darkgray;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    min-width: 330px;
 }
 
-.webconvo-title {
-  font-size: 1.75rem;
-  font-weight: bold;
-  padding-left: 0px;
+.webconvoheader {
+    align-items: center;
+    background-color: lightsteelblue;
+    border-bottom: 1px solid darkgrey;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    justify-content: center;
 }
 
-.keyhole {
-  font-size: 1rem;
-  font-style: initial;
-  padding-left: 25px;
+.webconvoheadername {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
 }
 
-.message-board {}
-
-.message-board-title {
-  color: black;
-  font-size: 1.25rem;
+.webconvoheadersidecont {
+    display: flex;
+    width: 20%;
 }
 
-.message-board-mid {
-  height: 300px;
-  overflow: scroll;
-  overflow-y: auto;
+.webconvoheaderbuttoncont {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.message-time {
-  color: grey;
-  text-align: right;
-  padding: 4px;
-  margin: 0.25rem;
-  font-size: 0.75rem;
-}
-
-.message-msg {
-  margin: 8px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.message-msg-left {
-  color: #f1f1f1;
-  background: blue;
-  padding: 0.25rem;
-  margin: 0.25rem;
-  font-size: 1rem;
-  border-radius: 4px;
-}
-
-.message-msg-right {
-  color: #1f1f1f;
-  background: #c3c3c3;
-  padding: 0.25rem;
-  margin: 0.25rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  right: 0;
-}
-
-.message-box-button {
-  width: 20%;
-  padding: 7px;
-  margin: 2px;
-  background: blue;
-  color: #f1f1f1;
-  font-size: 1rem;
-  margin-left: 10px;
-  border-radius: 10px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.message-box-text {
-  width: 70%;
-  padding: 7px;
-  margin: 2px;
-  font-size: 1rem;
-  border: 1px solid grey;
-  border-radius: 4px;
+.webconvoheaderbutton {
+    background-color: rgb(21,49,79);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    margin-right: 8px;
+    padding: 8px 15px;
 }
