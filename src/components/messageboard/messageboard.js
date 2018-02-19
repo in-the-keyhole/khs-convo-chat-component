@@ -4,6 +4,11 @@ import './messageboard.css';
 
 export default class MessageBoard extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this._scrollToBottom = this._scrollToBottom.bind(this);
+	}
+
 	componentDidMount() {
 		this._scrollToBottom();
 	}
@@ -24,7 +29,7 @@ export default class MessageBoard extends React.Component {
 		);
 	}
 
-	_scrollToBottom = () => {
+	_scrollToBottom() {
         this.messageBoard.scrollTop = this.messageBoard.scrollHeight;
-	};
+	}
 }

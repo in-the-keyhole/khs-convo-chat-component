@@ -7,38 +7,42 @@ export default class MessageBox extends React.Component {
 		this.state = {
 			inputMessage: '',
 		};
+		this.handleKeyPress = this.handleKeyPress.bind(this);
+		this.sendMessage = this.sendMessage.bind(this);
+		this.updateInputValue = this.updateInputValue.bind(this);
 	}
 
 	componentDidMount() {
 		this.messageInput.focus();
 	}
 
-	sendMessage = () => {
+	sendMessage() {
+		const self = this;
 		if (this.state.inputMessage.trim().length === 0) {
 			return;
 		}
 		this.messageInput.disabled = true;
 		const cb = shouldClearInput => {
 			if (shouldClearInput) {
-				this.setState({ inputMessage: '' });
+				self.setState({ inputMessage: '' });
 			}
-			this.messageInput.disabled = false;
-			this.messageInput.focus();
+			self.messageInput.disabled = false;
+			self.messageInput.focus();
 		};
 		this.props.postMessage(this.state.inputMessage, cb);
-	};
+	}
 
-	handleKeyPress = e => {
+	handleKeyPress(e) {
 		if (e.key === 'Enter') {
 			this.sendMessage();
 		}
-	};
+	}
 
-	updateInputValue = evt => {
+	updateInputValue(evt) {
 		this.setState({
 			inputMessage: evt.target.value,
 		});
-	};
+	}
 
 	render() {
 		return (
