@@ -19,7 +19,7 @@ export default class Message extends React.Component {
 
 	render() {
 		return (
-			<div className={this.state.contClasses}>
+			<div className={this.state.contClasses} key={this.props.key}>
 				<div className={this.props.message.Body.length > 3 ? this.state.fauxContClasses : this.state.fauxSmallTextContClasses }>
 					<div className={this.state.textClasses}>
 						<p className="messagetext">{this.props.message.Body}</p>

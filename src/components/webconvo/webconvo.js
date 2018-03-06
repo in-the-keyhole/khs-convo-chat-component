@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 import React from 'react';
 import PropTypes from 'prop-types';
 import MessageBoard from '../messageboard/messageboard';
@@ -6,6 +7,8 @@ import PhoneNumbersModal from '../phonenumbersmodal/phonenumbersmodal';
 import LocalAjaxProvider from '../ajax/localprovider';
 import RemoteAjaxProvider from '../ajax/remoteprovider';
 import './webconvo.css';
+
+var counter = 1;
 
 export default class WebConvo extends React.Component {
     constructor(props) {
@@ -45,6 +48,7 @@ export default class WebConvo extends React.Component {
         const payload = {
             Body: message,
             From: this.state.myPhoneNumber,
+            key: counter++,
             To: this.state.theirPhoneNumber,
         };
         this.displayMessage(payload);
@@ -62,6 +66,7 @@ export default class WebConvo extends React.Component {
                 const newMessage = {
                     Body: m,
                     From: this.state.theirPhoneNumber,
+                    key: counter++,
                     To: this.state.myPhoneNumber,
                 };
                 this.displayMessage(newMessage, () => {
