@@ -1,8 +1,17 @@
 # khs-convo-emulator
 
-A reusable React Component that honors the API contracts and functionality of [khs-convo](https://github.com/in-the-keyhole/khs-convo), an open-source communications platform.
+A reusable React Chat UI Component that can be embedded or used in a standalone manner. 
 
-In the absence of a hosted `khs-convo` backend, this component will emulate sending messages, locally.
+![](chat-bot-image.png)
+
+## Install and Run Test Emulator 
+
+Prereqs: Node.js Installed 
+
+`1.` Clone Repo 
+
+`2.` Run `npm start` Emulator should appear, any message sent will be echoed.  
+
 
 ## Adding To your Application
 
@@ -20,8 +29,9 @@ In the absence of a hosted `khs-convo` backend, this component will emulate send
 />
 ```
 
-All of the properties are optional and have empty defaults.
 
+
+All of the properties are optional and have empty defaults.
 
 ## Building
 
