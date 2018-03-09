@@ -8,7 +8,7 @@ import LocalAjaxProvider from '../ajax/localprovider';
 import RemoteAjaxProvider from '../ajax/remoteprovider';
 import './webconvo.css';
 
-var counter = 1;
+let counter = 1;
 
 export default class WebConvo extends React.Component {
     constructor(props) {
@@ -90,7 +90,8 @@ export default class WebConvo extends React.Component {
     }
 
     render() {
-        return (<div className="webconvo" style={{ width: this.props.containerWidth }}>
+        return (
+            <div className="webconvo" style={{ width: this.props.containerWidth }}>
                 {this.ajaxProvider}
                 <div className="webconvoheader">
                     <div className="webconvoheadersidecont"></div>
@@ -107,7 +108,8 @@ export default class WebConvo extends React.Component {
                 <div>
                     <MessageBox postMessage={this.postMessage} />
                 </div>
-            </div>);
+            </div>
+        );
     }
 }
 

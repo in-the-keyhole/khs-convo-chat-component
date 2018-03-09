@@ -2,7 +2,7 @@
 
 A reusable React Component that honors the API contracts and functionality of [khs-convo](https://github.com/in-the-keyhole/khs-convo), an open-source communications platform.
 
-In the absence of a hosted `khs-convo` backend, this component will emulate sending messages, locally.
+In the absence of a hosted `khs-convo` backend, this component will emulate sending messages, locally. This is the default.
 
 ## Adding To your Application
 
@@ -25,26 +25,28 @@ All of the properties are optional and have empty defaults.
 
 ## Building
 
-Note that building is not required to utilize the component in your project. It is ready for consumption after declaring the project as a dependency. These next two sections cover project maintenance.
+[yarn](https://yarnpkg.com/lang/en/docs/install/) is required to build the project.
 
-The `./.env` file has all the build-time environment variables, with comments. Values are, by default, empty. Leave these unpopulated for demo builds; otherwise, populate with a real API URL, data, etc.
+Note that building is not required to utilize the component in your project. It is ready for consumption after declaring the project as a dependency.
 
-You also have the option of creating a `./.env*.local` file (which are `git ignore`d) with populated values, in case you want to fork and avoid diff noise.
-
-See this section in React Scripts for more details on overriding files and for which build phases they are applicable: 
-
-[https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#what-other-env-files-can-be-used](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#what-other-env-files-can-be-used)
-
-Note that the main component `WebConvo` looks in both places, declared properties/values and environment variables, in that order, for setting its "mode" of operation. Neither are required, in which case, the component runs in emulation mode.
-
-To build:
+To build a production version:
 
 ```
-$ npm run build
+$ yarn build
 ``` 
 
-## Developing and Testing
+... which builds into `./dist`.
 
-`$ npm start` will start a dev server serving a dev build.
+To build a development version:
+
+```
+$ yarn dev
+```
+
+... which builds into `./public` for the static server.
+
+## Running the Server
+
+`$ yarn start` will start a static server. It serves out of `./public`.
 
 

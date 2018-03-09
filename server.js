@@ -1,16 +1,19 @@
-var express = require('express');
-var app = express();
+var static = require('node-static');
 
-app.use('/', function (req, res, next) {
-	console.log(req.originalUrl);
-	next();
-});
+//
+// Create a node-static server instance to serve the './public' folder
+//
+var file = new static.Server('./public', { cache: 0 });
 
-app.use(express.static('build/'));
+var port = process.env.PORT || 3000;
 
-app.use('/in-the-keyhole/khs-convo-emulator/', express.static('build/'));
+require('http').createServer(function (request, response) {
+    request.addListener('end', function () {
+        //
+        // Serve files!
+        //
+        file.serve(request, response);
+    }).resume();
+}).listen(port);
 
-app.listen(3000, function () {
-	console.log('listening on port 3000');
-});
-
+console.log('listening on 127.0.0.1:' + port);
