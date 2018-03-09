@@ -17,7 +17,7 @@
     "webpack-cli": "2.0.9"
   },
   "homepage": "https://github.com/in-the-keyhole/khs-convo-emulator#readme",
-  "keywords": [],
+  "keywords": ["keyhole", "react", "khs-convo"],
   "license": "Apache-2.0",
   "main": "index.js",
   "name": "khs-convo-emulator",
