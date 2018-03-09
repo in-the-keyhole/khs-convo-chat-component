@@ -19,7 +19,7 @@ export default class MessageBoard extends React.Component {
 
 	render() {
 		const messagesRows = this.props.messages.map(msg => {
-			return (<Message key={msg.key} body={msg.Body} from={msg.From} myPhoneNumber={this.props.myPhoneNumber} />);
+			return (<Message key={msg.key} body={msg.Body} timestamp={msg.timestamp} from={msg.From} myPhoneNumber={this.props.myPhoneNumber} />);
 		});
 
 		return (

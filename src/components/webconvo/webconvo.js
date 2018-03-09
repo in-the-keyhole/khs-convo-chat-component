@@ -49,6 +49,7 @@ export default class WebConvo extends React.Component {
             Body: message,
             From: this.state.myPhoneNumber,
             key: counter++,
+            timestamp: Date.now(),
             To: this.state.theirPhoneNumber,
         };
         this.displayMessage(payload);
@@ -67,6 +68,7 @@ export default class WebConvo extends React.Component {
                     Body: m,
                     From: this.state.theirPhoneNumber,
                     key: counter++,
+                    timestamp: Date.now(),
                     To: this.state.myPhoneNumber,
                 };
                 this.displayMessage(newMessage, () => {
