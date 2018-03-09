@@ -1,9 +1,9 @@
 {
   "author": "Keyhole Software <asktheteam@keyholesoftware.com>",
   "bugs": {
-    "url": "https://github.com/in-the-keyhole/khs-convo-emulator/issues"
+    "url": "https://github.com/in-the-keyhole/khs-convo-chat-component/issues"
   },
-  "description": "Convo SMS UI Emulator",
+  "description": "khs-convo react chat component, with default emulation",
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
@@ -16,20 +16,21 @@
     "webpack": "4.0.1",
     "webpack-cli": "2.0.9"
   },
-  "homepage": "https://github.com/in-the-keyhole/khs-convo-emulator#readme",
+  "homepage": "https://github.com/in-the-keyhole/khs-convo-chat-component#readme",
   "keywords": ["keyhole", "react", "khs-convo"],
   "license": "Apache-2.0",
   "main": "index.js",
-  "name": "khs-convo-emulator",
+  "name": "khs-convo-chat-component",
   "peerDependencies": {
     "prop-types": "~15.6.0",
     "react": "~16.2.0",
     "react-dom": "~16.2.0",
     "whatwg-fetch": "~2.0.3"
   },
+  "preferGlobal": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/in-the-keyhole/khs-convo-emulator.git"
+    "url": "git+https://github.com/in-the-keyhole/khs-convo-chat-component.git"
   },
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",

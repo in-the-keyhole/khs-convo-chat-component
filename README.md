@@ -1,24 +1,16 @@
-# khs-convo-emulator
+# khs-convo-chat-component
 
 A reusable React Chat UI Component that can be embedded or used in a standalone manner.
 
+In the absence of a hosted `khs-convo` backend (that is, with React properties set to default -- blank), this component will emulate sending messages, locally. This is the default behavior.
+
 ![](chat-bot-image.png)
-
-## Install and Run Test Emulator
-
-Prereqs: Node.js Installed
-
-`1.` Clone Repo
-
-`2.` Run `npm start` Emulator should appear, any message sent will be echoed.
-
-In the absence of a hosted `khs-convo` backend, this component will emulate sending messages, locally. This is the default.
 
 ## Adding To your Application
 
 `./src/components/webconvo/webconvo.js` is the main component.
 
-`import WebConvo from 'khs-convo-emulator';`
+`import WebConvo from 'khs-convo-chat-component';`
 
 ```jsx
 <WebConvo
@@ -30,15 +22,23 @@ In the absence of a hosted `khs-convo` backend, this component will emulate send
 />
 ```
 
-
-
 All of the properties are optional and have empty defaults.
 
 ## Building
 
-[yarn](https://yarnpkg.com/lang/en/docs/install/) is required to build the project.
+[yarn](https://yarnpkg.com/lang/en/docs/install/) is used to build the project.
 
 Note that building is not required to utilize the component in your project. It is ready for consumption after declaring the project as a dependency.
+
+e.g.
+
+```json
+{
+	"dependencies": {
+		"khs-convo-chat-component": "1.0.0"
+	}
+}
+```
 
 To build a production version:
 
