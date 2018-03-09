@@ -18,8 +18,8 @@ export default class WebConvo extends React.Component {
             apiUrl: this.props.apiUrl || process.env.REACT_APP_KHS_CONVO_API_URL,
             displayPhoneNumbersModal: false,
             messages: [],
-            myPhoneNumber: this.props.myPhoneNumber || '800-555-1234',
-            theirPhoneNumber: this.props.theirPhoneNumber || 'Keyhole Software',
+            myPhoneNumber: this.props.myPhoneNumber || 'Me',
+            theirPhoneNumber: this.props.theirPhoneNumber || 'Contact',
         };
         this.addPhoneNumberButtonPressed = this.addPhoneNumberButtonPressed.bind(this);
         this.closePhoneNumbersModal = this.closePhoneNumbersModal.bind(this);
