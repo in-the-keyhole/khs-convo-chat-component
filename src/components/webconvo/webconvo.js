@@ -14,8 +14,8 @@ export default class WebConvo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            apiKey: this.props.apiKey || process.env.REACT_APP_KHS_CONVO_API_KEY,
-            apiUrl: this.props.apiUrl || process.env.REACT_APP_KHS_CONVO_API_URL,
+            apiKey: this.props.apiKey,
+            apiUrl: this.props.apiUrl,
             displayPhoneNumbersModal: false,
             messages: [],
             myPhoneNumber: this.props.myPhoneNumber || 'Me',
