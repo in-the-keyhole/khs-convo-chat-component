@@ -3,13 +3,6 @@
   "bugs": {
     "url": "https://github.com/in-the-keyhole/khs-convo-emulator/issues"
   },
-  "dependencies": {
-    "chance": "1.0.13",
-    "prop-types": "15.6.0",
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
-    "whatwg-fetch": "2.0.3"
-  },
   "description": "Convo SMS UI Emulator",
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -28,6 +21,12 @@
   "license": "Apache-2.0",
   "main": "index.js",
   "name": "khs-convo-emulator",
+  "peerDependencies": {
+    "prop-types": "~15.6.0",
+    "react": "~16.2.0",
+    "react-dom": "~16.2.0",
+    "whatwg-fetch": "~2.0.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/in-the-keyhole/khs-convo-emulator.git"
