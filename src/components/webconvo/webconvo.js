@@ -8,18 +8,18 @@ import LocalAjaxProvider from '../ajax/localprovider';
 import RemoteAjaxProvider from '../ajax/remoteprovider';
 import './webconvo.css';
 
-var counter = 1;
+let counter = 1;
 
 export default class WebConvo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            apiKey: this.props.apiKey || process.env.REACT_APP_KHS_CONVO_API_KEY,
-            apiUrl: this.props.apiUrl || process.env.REACT_APP_KHS_CONVO_API_URL,
+            apiKey: this.props.apiKey,
+            apiUrl: this.props.apiUrl,
             displayPhoneNumbersModal: false,
             messages: [],
-            myPhoneNumber: this.props.myPhoneNumber || '800-555-1234',
-            theirPhoneNumber: this.props.theirPhoneNumber || 'Keyhole Software',
+            myPhoneNumber: this.props.myPhoneNumber || 'Me',
+            theirPhoneNumber: this.props.theirPhoneNumber || 'Contact',
         };
         this.addPhoneNumberButtonPressed = this.addPhoneNumberButtonPressed.bind(this);
         this.closePhoneNumbersModal = this.closePhoneNumbersModal.bind(this);
@@ -49,6 +49,7 @@ export default class WebConvo extends React.Component {
             Body: message,
             From: this.state.myPhoneNumber,
             key: counter++,
+            timestamp: Date.now(),
             To: this.state.theirPhoneNumber,
         };
         this.displayMessage(payload);
@@ -67,6 +68,7 @@ export default class WebConvo extends React.Component {
                     Body: m,
                     From: this.state.theirPhoneNumber,
                     key: counter++,
+                    timestamp: Date.now(),
                     To: this.state.myPhoneNumber,
                 };
                 this.displayMessage(newMessage, () => {
@@ -90,7 +92,8 @@ export default class WebConvo extends React.Component {
     }
 
     render() {
-        return (<div className="webconvo" style={{ width: this.props.containerWidth }}>
+        return (
+            <div className="webconvo" style={{ width: this.props.containerWidth }}>
                 {this.ajaxProvider}
                 <div className="webconvoheader">
                     <div className="webconvoheadersidecont"></div>
@@ -107,7 +110,8 @@ export default class WebConvo extends React.Component {
                 <div>
                     <MessageBox postMessage={this.postMessage} />
                 </div>
-            </div>);
+            </div>
+        );
     }
 }
 

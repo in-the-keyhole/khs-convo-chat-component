@@ -1,8 +1,4 @@
 import React from 'react';
-import Chance from 'chance';
-
-const chance = Chance();
-
 
 const createResponse = payload => {
     return new Response(payload, {
@@ -37,7 +33,7 @@ export default class LocalAjaxProviderClass extends React.Component {
 
     getResponse() {
         return new Promise(resolve => {
-            const text = chance.sentence();
+            const text = 'Mock asynchronous response.';
             const xml = createXml(text);
             resolve(createResponse(xml));
         });

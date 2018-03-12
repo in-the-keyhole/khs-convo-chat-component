@@ -8,7 +8,7 @@
 }
 
 .fromme {
-    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .frommetext {
@@ -32,6 +32,7 @@
 
 .messagetextfauxcont, .messageshorttextfauxcont {
     display: flex;
+    flex-direction: column;
     position: relative;
 }
 
@@ -57,4 +58,17 @@
     border-left: 0;
     border-top-color: gainsboro;
     left: 25px;
+}
+
+.messagetimestamp {
+    color: grey;
+    font-size: .7em;
+}
+
+.fromme > .messagetimestamp {
+    margin-right: 15px;
+ }
+
+.fromyou > .messagetimestamp {
+    margin-left: 15px;
 }

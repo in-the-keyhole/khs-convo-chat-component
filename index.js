@@ -1,1 +1,2 @@
-module.exports = require('./src/components/webconvo/webconvo');
+module.exports = require('./dist/bundle');
+// module.exports = require('./public/index');

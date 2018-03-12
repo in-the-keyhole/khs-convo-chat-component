@@ -1,63 +1,69 @@
-# khs-convo-emulator
+# khs-convo-chat-component
 
-A reusable React Chat UI Component that can be embedded or used in a standalone manner. 
+A reusable React Chat UI Component that can be embedded or used in a standalone manner.
+
+In the absence of a hosted `khs-convo` backend (that is, with React properties set to default -- blank), this component will emulate sending messages, locally. This is the default behavior.
 
 ![](chat-bot-image.png)
-
-## Install and Run Test Emulator 
-
-Prereqs: Node.js Installed 
-
-`1.` Clone Repo 
-
-`2.` Run `npm start` Emulator should appear, any message sent will be echoed.  
-
 
 ## Adding To your Application
 
 `./src/components/webconvo/webconvo.js` is the main component.
 
-`import WebConvo from 'khs-convo-emulator';`
+`import WebConvo from 'khs-convo-chat-component';`
 
 ```jsx
-<WebConvo 
+<WebConvo
 	apiKey={"<some_khs_convo_api_key_or_blank"}
 	apiUrl={"<some_khs_convo_api_url_or_blank"}
-	containerWidth={"<some_width_or_blank>"} 
-	myPhoneNumber={"<your_phone_number_or_blank>"} 
-	theirPhoneNumber={"<recipient_phone_number_or_blank>"} 
+	containerWidth={"<some_width_or_blank>"}
+	myPhoneNumber={"<your_phone_number_or_blank>"}
+	theirPhoneNumber={"<recipient_phone_number_or_blank>"}
 />
 ```
 
 All of the properties are optional and have empty defaults.
+<<<<<<< HEAD
 
 ## Interacting with a server side API 
 
 By default chat messages are simply echoed back to the UI, but you can interact with a 
 
+=======
+>>>>>>> dfe5afb60a48e9209322f87093c3a494ffac73cd
 
 ## Building
 
-Note that building is not required to utilize the component in your project. It is ready for consumption after declaring the project as a dependency. These next two sections cover project maintenance.
+[yarn](https://yarnpkg.com/lang/en/docs/install/) is used to build the project.
 
-The `./.env` file has all the build-time environment variables, with comments. Values are, by default, empty. Leave these unpopulated for demo builds; otherwise, populate with a real API URL, data, etc.
+Note that building is not required to utilize the component in your project. It is ready for consumption after declaring the project as a dependency.
 
-You also have the option of creating a `./.env*.local` file (which are `git ignore`d) with populated values, in case you want to fork and avoid diff noise.
+e.g.
 
-See this section in React Scripts for more details on overriding files and for which build phases they are applicable: 
+```json
+{
+	"dependencies": {
+		"khs-convo-chat-component": "1.0.0"
+	}
+}
+```
 
-[https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#what-other-env-files-can-be-used](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#what-other-env-files-can-be-used)
-
-Note that the main component `WebConvo` looks in both places, declared properties/values and environment variables, in that order, for setting its "mode" of operation. Neither are required, in which case, the component runs in emulation mode.
-
-To build:
+To build a production version:
 
 ```
-$ npm run build
-``` 
+$ yarn build
+```
 
-## Developing and Testing
+... which builds into `./dist`.
 
-`$ npm start` will start a dev server serving a dev build.
+To build a development version:
 
+```
+$ yarn dev
+```
 
+... which builds into `./public` for the static server.
+
+## Running the Server
+
+`$ yarn start` will start a static server. It serves out of `./public`.
