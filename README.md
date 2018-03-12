@@ -6,7 +6,10 @@ In the absence of a hosted `khs-convo` backend (that is, with React properties s
 
 ![](chat-bot-image.png)
 
-## Adding To your Application
+## Adding To your React Application
+
+	$ npm install khs-convo-chat-component  
+
 
 `./src/components/webconvo/webconvo.js` is the main component.
 
@@ -22,15 +25,14 @@ In the absence of a hosted `khs-convo` backend (that is, with React properties s
 />
 ```
 
-All of the properties are optional and have empty defaults.
-<<<<<<< HEAD
+All of the properties are optional and have empty defaults, if left blank, the component will work, but will echo backed.
 
 ## Interacting with a server side API 
 
-By default chat messages are simply echoed back to the UI, but you can interact with a 
+By default chat messages are simply echoed back to the UI, you can interact with a server side API with the following configuration. 
 
-=======
->>>>>>> dfe5afb60a48e9209322f87093c3a494ffac73cd
+
+
 
 ## Building
 
@@ -56,7 +58,7 @@ $ yarn build
 
 ... which builds into `./dist`.
 
-To build a development version:
+To build a development version, allows testing component in standalone manner:
 
 ```
 $ yarn dev
@@ -64,6 +66,6 @@ $ yarn dev
 
 ... which builds into `./public` for the static server.
 
-## Running the Server
+## Running the Dev Testing Server
 
-`$ yarn start` will start a static server. It serves out of `./public`.
+`$ yarn start` will start a static server at `127.0.01:3000`. It serves out of `./public`.
