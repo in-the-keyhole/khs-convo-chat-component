@@ -29,9 +29,12 @@ Prereqs: Node.js Installed
 />
 ```
 
-
-
 All of the properties are optional and have empty defaults.
+
+## Interacting with a server side API 
+
+By default chat messages are simply echoed back to the UI, but you can interact with a 
+
 
 ## Building
 
