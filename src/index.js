@@ -6,7 +6,7 @@ ReactDOM.render(
     <WebConvo
         apiKey={""}
         apiUrl={""}
-        containerWidth={""}
+        containerWidth={"50%"}
         myPhoneNumber={""}
         theirPhoneNumber={""}
     />,

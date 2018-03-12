@@ -19,7 +19,7 @@ export default class WebConvo extends React.Component {
             displayPhoneNumbersModal: false,
             messages: [],
             myPhoneNumber: this.props.myPhoneNumber || 'Me',
-            theirPhoneNumber: this.props.theirPhoneNumber || 'Contact',
+            theirPhoneNumber: this.props.theirPhoneNumber || 'Your Title',
         };
         this.addPhoneNumberButtonPressed = this.addPhoneNumberButtonPressed.bind(this);
         this.closePhoneNumbersModal = this.closePhoneNumbersModal.bind(this);
