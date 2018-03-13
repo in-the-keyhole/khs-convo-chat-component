@@ -1,12 +1,12 @@
 # khs-convo-chat-component
 
-A reusable React Chat UI Component for textual communication between endpoints.
+A reusable React Chat UI Component for textual communication between endpoints, for use with `npm`-based projects.
 
 This component abstracts away its data transport middleware and, in the absence of a consumer-provided implementations, emulates its own asynchronous reply.
 
 ![](chat-bot-image.png)
 
-## Adding To your Application
+## Adding To your React Application
 
 `./src/components/webconvo/webconvo.js` is the main component.
 
@@ -123,4 +123,4 @@ You may also provide the global functions in `./public/index.html`. Examples hav
 
 ## Running the Server
 
-`$ yarn start` will start a static server. It serves out of `./public`.
+`$ yarn start` will start a static server at `localhost:3000`. It serves out of `./public`.
