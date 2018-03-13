@@ -26,6 +26,10 @@
     margin-left: 12px;
 }
 
+.messagetextcont.fromyoutext {
+    display: inline-table;
+}
+
 .messagetext {
     margin: 8px;
 }

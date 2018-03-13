@@ -17,15 +17,18 @@
     "webpack-cli": "2.0.9"
   },
   "homepage": "https://github.com/in-the-keyhole/khs-convo-chat-component#readme",
-  "keywords": ["keyhole", "react", "khs-convo"],
+  "keywords": [
+    "keyhole",
+    "react",
+    "chat"
+  ],
   "license": "Apache-2.0",
   "main": "index.js",
   "name": "khs-convo-chat-component",
   "peerDependencies": {
     "prop-types": "~15.6.0",
     "react": "~16.2.0",
-    "react-dom": "~16.2.0",
-    "whatwg-fetch": "~2.0.3"
+    "react-dom": "~16.2.0"
   },
   "preferGlobal": false,
   "repository": {
@@ -37,5 +40,5 @@
     "dev": "webpack --config dev.config.js --mode development",
     "start": "node server.js"
   },
-  "version": "1.0.0"
+  "version": "2.0.0"
 }

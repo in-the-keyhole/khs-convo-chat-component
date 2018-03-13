@@ -10,8 +10,13 @@ export default class Message extends React.Component {
 			fauxSmallTextContClasses: `messageshorttextfauxcont ${this.isFromMe() ? 'fromme' : 'fromyou'}`,
 			textClasses: `messagetextcont ${this.isFromMe() ? 'frommetext' : 'fromyoutext'}`,
 		};
+		this.getSender = this.getSender.bind(this);
 		this.getTime = this.getTime.bind(this);
 		this.isFromMe = this.isFromMe.bind(this);
+	}
+
+	getSender() {
+		return this.props.sender || '';
 	}
 
 	getTime() {
@@ -35,16 +40,16 @@ export default class Message extends React.Component {
 	}
 
 	isFromMe() {
-		return this.props.from === this.props.myPhoneNumber;
+		return this.getSender() === this.props.me;
 	}
 
 	render() {
 		return (
 			<div className={this.state.contClasses}>
-				<div className={this.props.body.length > 3 ? this.state.fauxContClasses : this.state.fauxSmallTextContClasses }>
-                    <div className="messagetimestamp">{this.getTime()}</div>
+				<div className={this.props.text.length > 3 ? this.state.fauxContClasses : this.state.fauxSmallTextContClasses }>
+                    <div className="messagetimestamp">{this.getSender() + ', ' + this.getTime()}</div>
 					<div className={this.state.textClasses}>
-						<p className="messagetext">{this.props.body}</p>
+						<p className="messagetext">{this.props.text}</p>
 					</div>
 				</div>
 			</div>

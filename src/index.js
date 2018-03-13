@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom';
 import WebConvo from './components/webconvo/webconvo';
 
 ReactDOM.render(
-    <WebConvo
-        apiKey={""}
-        apiUrl={""}
-        containerWidth={""}
-        myPhoneNumber={""}
-        theirPhoneNumber={""}
-    />,
-    document.getElementById("root")
+	<WebConvo
+		brandingTitle={''}
+		containerWidth={''}
+		sender={''}
+	/>,
+	document.getElementById("root")
 );

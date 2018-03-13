@@ -7,4 +7,5 @@ server.js
 webpack.config.js
 .idea
 yarn.lock
+yarn-error.log
 .npmignore

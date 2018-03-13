@@ -22,23 +22,3 @@
     flex-grow: 1;
     justify-content: center;
 }
-
-.webconvoheadersidecont {
-    display: flex;
-    width: 20%;
-}
-
-.webconvoheaderbuttoncont {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.webconvoheaderbutton {
-    background-color: rgb(21,49,79);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 1em;
-    margin-right: 8px;
-    padding: 8px 15px;
-}

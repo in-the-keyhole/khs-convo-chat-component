@@ -22,11 +22,13 @@ export default class MessageBox extends React.Component {
 			return;
 		}
 		this.messageInput.disabled = true;
+		this.messageButton.disabled = true;
 		const cb = shouldClearInput => {
 			if (shouldClearInput) {
 				self.setState({ inputMessage: '' });
 			}
 			self.messageInput.disabled = false;
+			this.messageButton.disabled = false;
 			self.messageInput.focus();
 		};
 		this.props.postMessage(this.state.inputMessage, cb);
@@ -48,7 +50,7 @@ export default class MessageBox extends React.Component {
 		return (
 			<div className="messageboxcont">
 				<input type="text" className="messageboxinput" ref={(i) => { this.messageInput = i; }} onKeyPress={this.handleKeyPress} onChange={this.updateInputValue} value={this.state.inputMessage} />
-				<button type="button" className="messageboxbutton" onClick={this.sendMessage}>Send</button>
+				<button type="button" className="messageboxbutton" ref={(i) => { this.messageButton = i; }} onClick={this.sendMessage}>Send</button>
 			</div>
 		);
 	}
