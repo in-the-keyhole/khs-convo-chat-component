@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.0 (2018-03-14)
+
+Global handler functions are now replaced with React properties. Shim implementations provided in `src/index.js` (removed from `public/index.html`) for development. README updated.
+
+
 ## 2.0.0 (2018-03-13)
 
 Release 2.0 broadens this component’s utility. Instead of being a synchronous `khs-convo` SMS UI provider, it is now a general-purpose, asynchronous messaging client.
