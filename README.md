@@ -2,7 +2,7 @@
 
 A reusable React Chat UI Component for textual communication between endpoints, for use with `npm`-based projects.
 
-This component abstracts away its data transport middleware and, in the absence of a consumer-provided implementations, emulates its own asynchronous reply.
+This component abstracts away its data transport middleware and, in the absence of a consumer-provided implementation, emulates its own asynchronous reply.
 
 ![](chat-bot-image.png)
 
@@ -16,22 +16,27 @@ This component abstracts away its data transport middleware and, in the absence 
 <WebConvo
 	brandingTitle={"<some_title_branding_that_will_show_up_in_the_widget_title_or_blank>"}
 	containerWidth={"<some_width_or_blank>"}
+	receiveHandler={<a_function_or_null>} // see details below
 	sender={"<some_string_identifying_you_the_sender_or_blank>"}
+	sendHandler={<a_function_or_null>} // see details below
 />
 ```
 
-All of the properties are **optional** and have empty defaults.
+All of the properties are **optional** and have "null" defaults.
 
-### Global Callback Functions
+### Callback Functions
 
-The second part, also **optional**, is to provide **global** functions with these contracts:
+The second part, also **optional**, is to provide property functions with these contracts:
 
-#### Sending Messages
+#### sendHandler
+
+The `sendHandler` is a function that takes messages **from** the component. It looks like this:
 
 ```js
-function sendKhsConvoMessage(message, success, error) {
-	// do something with the Message (see JSON representation below)...
-	// invoke the no-arg success() or
+// note: function name is variable
+function sendFunctionName(message, success, error) {
+	// do something with the incoming Message (see JSON representation below)...
+	// return the message to success() or
 	// return the string error to error()
 }
 ```
@@ -39,8 +44,8 @@ function sendKhsConvoMessage(message, success, error) {
 And a look at the callbacks passed to this function:
 
 ```js
-function success() {
-	// no-arg
+function success(message) {
+	// message is the same one passed to the sendHandler (see JSON representation below)...
 }
 ```
 
@@ -50,13 +55,15 @@ function error(errorText) {
 }
 ```
 
-#### Receiving Messages
+#### receiveHandler
 
-To facilitate asynchronous communication, **all** responses from the remote endpoint **must** come through this global function:
+To facilitate asynchronous communication, **all** responses from the remote endpoint **must** come from this property function:
 
 ```js
-function registerKhsConvoMessageReceive(cb) {
-	// call the cb() with the new Message (see JSON representation below)...
+// note: function name is variable
+function receiveFunctionName(cb) {
+	// construct the outgoing Message (see JSON representation below)...
+	// and send to the cb()
 }
 ```
 
@@ -64,15 +71,13 @@ The response callback looks like this:
 
 ```js
 function cb(newMessage) {
-	// newMessage is a Message
+	// newMessage is a Message (see JSON representation below)...
 }
 ```
 
-This component looks for the global `registerKhsConvoMessageReceive` after being mounted. If exists, the component will register its callback once.
-
 #### Message JSON
 
-The Message (used as an argument in the global send function and receive callback) looks like this:
+The Message (used as an argument in the sendHandler, success callback, and receiveHandler callback) looks like this:
 
 ```js
 {
@@ -92,7 +97,7 @@ e.g.
 ```json
 {
 	"dependencies": {
-		"khs-convo-chat-component": "2.0.0"
+		"khs-convo-chat-component": "2.1.0"
 	}
 }
 ```
@@ -119,7 +124,7 @@ $ yarn dev
 
 Note that you may change the declared React properties *prior* to building dev in `./src/index.js`
 
-You may also provide the global functions in `./public/index.html`. Examples have been commented-out.
+You may also provide the implementations of the handler functions there, as well. Stubs have been commented-out.
 
 ## Running the Server
 

@@ -21,8 +21,6 @@ import MessageBoard from '../messageboard/messageboard';
 import MessageBox from '../messagebox/messagebox';
 import './webconvo.css';
 
-const global = (() => {}).constructor('return this')();
-
 export default class WebConvo extends React.Component {
 	constructor(props) {
 		super(props);
@@ -32,12 +30,14 @@ export default class WebConvo extends React.Component {
 			sender: this.props.sender || 'Me',
 		};
 		this.displayMessage = this.displayMessage.bind(this);
-		this.displayReply = this.displayReply.bind(this);
 		this.postMessage = this.postMessage.bind(this);
+		this._sendErrorCb = this._sendErrorCb.bind(this);
+		this._sendSuccessCb = this._sendSuccessCb.bind(this);
 	}
 
-	displayMessage(message, cb) {
-		this.state.messages.push(message);
+	displayMessage(json, cb) {
+		const newMessage = new Message(json.text, json.sender);
+		this.state.messages.push(newMessage);
 		this.setState({ messages: this.state.messages }, () => {
 			if (cb) {
 				cb();
@@ -45,46 +45,48 @@ export default class WebConvo extends React.Component {
 		});
 	}
 
-	displayReply(json) {
-		const newMessage = new Message(json.text, json.sender);
-		this.displayMessage(newMessage);
-	}
-
 	postMessage(message, cb) {
-		const myMessage = new Message(message, this.state.sender);
-		if (typeof global.sendKhsConvoMessage === 'undefined') {
-			this.displayMessage(myMessage, () => {
+		const json = {
+			sender: this.state.sender,
+			text: message,
+		};
+		if (typeof this.props.sendHandler === 'function') {
+			this.props.sendHandler(json, this._sendSuccessCb(cb), this._sendErrorCb());
+		} else {
+			this.displayMessage(json, () => {
 				cb(true);
 			});
 			new Promise(resolve => {
 				const id = setTimeout(() => {
-					const json = {
+					const receiveJson = {
 						sender: 'Contact',
-						text: `echoing: ${myMessage.text}`,
+						text: `echoing: ${json.text}`,
 					};
-					resolve(json);
+					resolve(receiveJson);
 					clearTimeout(id);
 				}, 500);
 			})
-				.then(this.displayReply);
-		} else {
-			const m = {
-				sender: this.state.sender,
-				text: message
-			};
-			global.sendKhsConvoMessage(m, () => {
-				this.displayMessage(myMessage, () => {
-					cb(true);
-				})
-			}, _ => {
-				cb(false);
-			});
+				.then(this.displayMessage);
 		}
 	}
 
+	_sendErrorCb(messageBoxCb) {
+		return errorMessage => {
+			messageBoxCb(false);
+		};
+	}
+
+	_sendSuccessCb(messageBoxCb) {
+		return json => {
+			this.displayMessage(json, () => {
+				messageBoxCb(true);
+			});
+		};
+	}
+
 	componentDidMount() {
-		if (typeof global.sendKhsConvoMessage === 'undefined' && typeof global.registerKhsConvoMessageReceive !== 'undefined') {
-			global.registerKhsConvoMessageReceive(this.displayReply);
+		if (typeof this.props.receiveHandler === 'function') {
+			this.props.receiveHandler(this.displayMessage);
 		}
 	}
 
@@ -108,5 +110,7 @@ export default class WebConvo extends React.Component {
 WebConvo.propTypes = {
 	brandingTitle: PropTypes.string,
 	containerWidth: PropTypes.string,
+	receiveHandler: PropTypes.func,
 	sender: PropTypes.string,
+	sendHandler: PropTypes.func
 };
