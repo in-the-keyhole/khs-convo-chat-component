@@ -97,7 +97,7 @@ e.g.
 ```json
 {
 	"dependencies": {
-		"khs-convo-chat-component": "2.1.0"
+		"khs-convo-chat-component": "2.2.0"
 	}
 }
 ```

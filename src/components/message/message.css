@@ -17,6 +17,14 @@
     margin-right: 12px;
 }
 
+.frommetext a {
+    color: white;
+}
+
+.frommetext a:visited {
+    color: lightgray;
+}
+
 .fromyou {
     justify-content: flex-start;
 }
@@ -24,6 +32,14 @@
 .fromyoutext {
     background-color: gainsboro;
     margin-left: 12px;
+}
+
+.fromyoutext a {
+    color: inherit;
+}
+
+.fromyoutext a:visited {
+    color: dimgray;
 }
 
 .messagetextcont.fromyoutext {

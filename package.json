@@ -40,5 +40,9 @@
     "dev": "webpack --config dev.config.js --mode development",
     "start": "node server.js"
   },
-  "version": "2.1.0"
+  "version": "2.2.0",
+  "dependencies": {
+    "dompurify": "1.0.3",
+    "lodash.escaperegexp": "4.1.2"
+  }
 }

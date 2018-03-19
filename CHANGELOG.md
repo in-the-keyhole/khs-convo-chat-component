@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0 (2018-03-19)
+
+`mailto` and `http/s` hyperlink support.
+
 ## 2.1.0 (2018-03-14)
 
 Global handler functions are now replaced with React properties. Shim implementations provided in `src/index.js` (removed from `public/index.html`) for development. README updated.
