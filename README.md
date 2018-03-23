@@ -8,19 +8,19 @@ This component abstracts away its data transport middleware and, in the absence 
 
 ## Installing and running test harness
 
-'1.' Clone repo 
+`1.` Clone repo 
 
-'2.' Yarn is used to build, so if not installed you can install with 
+`2.` Yarn is used to build, so if not installed you can install with 
 
 	$ npm i yarn
 
-'3.' Issue following commands from a terminal  
+`3.` Issue following commands from a terminal  
 
 	$ npm install 
 	$ yarn dev
 	$ yarn start 
 
-'4.' Open Browser on [http://localhost:3000](http://localhost:3000)
+`4.` Open Browser on [http://localhost:3000](http://localhost:3000)
 
 
 ## Adding To your React Application
@@ -39,7 +39,7 @@ This component abstracts away its data transport middleware and, in the absence 
 />
 ```
 
-##### Component is available as an [NPM](https://www.npmjs.com/package/khs-convo-chat-component) module.
+### Component is available as an [NPM](https://www.npmjs.com/package/khs-convo-chat-component) module.
 
 All of the properties are **optional** and have "null" defaults.
 
