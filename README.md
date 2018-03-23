@@ -39,7 +39,7 @@ This component abstracts away its data transport middleware and, in the absence 
 />
 ```
 
-##### Component is available as an [NPM](https://www.npmjs.com/package/khs-convo-chat-component) module.
+### Component is available as an [NPM](https://www.npmjs.com/package/khs-convo-chat-component) module.
 
 All of the properties are **optional** and have "null" defaults.
 
