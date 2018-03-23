@@ -28,7 +28,7 @@ const sendHandler = (json, success, error) => {
 ReactDOM.render(
 	<WebConvo
 		brandingTitle={''}
-		containerWidth={''}
+		containerWidth={'50%'}
 		receiveHandler={null}
 		sender={''}
 		sendHandler={null}
