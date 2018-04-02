@@ -1,6 +1,6 @@
 # khs-convo-chat-component
 
-A reusable React Chat UI Component for textual communication between endpoints, for use with `npm`-based projects.
+A reusable React Chat UI Component for text message communication between endpoints for use with `npm`-based projects.
 
 This component abstracts away its data transport middleware and, in the absence of a consumer-provided implementation, emulates its own asynchronous reply.
 
@@ -10,7 +10,7 @@ This component abstracts away its data transport middleware and, in the absence 
 
 `1.` Clone repo 
 
-`2.` Yarn is used to build, so if not installed you can install with 
+`2.` Yarn is used to build, so if not installed, you can install with 
 
 	$ npm i yarn
 
@@ -20,10 +20,10 @@ This component abstracts away its data transport middleware and, in the absence 
 	$ yarn dev
 	$ yarn start 
 
-`4.` Open Browser on [http://localhost:3000](http://localhost:3000)
+`4.` Open browser on [http://localhost:3000](http://localhost:3000)
 
 
-## Adding To your React Application
+## Adding To Your React Application
 
 `./src/components/webconvo/webconvo.js` is the main component.
 
@@ -41,7 +41,7 @@ This component abstracts away its data transport middleware and, in the absence 
 
 ### Component is available as an [NPM](https://www.npmjs.com/package/khs-convo-chat-component) module.
 
-All of the properties are **optional** and have "null" defaults.
+All of the properties are **optional** and have `null` defaults.
 
 ### Callback Functions
 
@@ -148,4 +148,3 @@ You may also provide the implementations of the handler functions there, as well
 ## Running the Server
 
 `$ yarn start` will start a static server at `localhost:3000`. It serves out of `./public`.
-
