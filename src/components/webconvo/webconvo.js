@@ -26,7 +26,7 @@ export default class WebConvo extends React.Component {
 		super(props);
 		this.state = {
 			brandingTitle: this.props.brandingTitle || 'Branding Title',
-			messages: [],
+			messages: this.props.defaultMessages,
 			sender: this.props.sender || 'Me',
 		};
 		this.displayMessage = this.displayMessage.bind(this);
@@ -90,6 +90,12 @@ export default class WebConvo extends React.Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.defaultMessages !== this.state.messages) {
+			this.setState({ messages: [] });
+		}
+	}
+
 	render() {
 		return (<div className="webconvo" style={{ width: this.props.containerWidth }}>
 			<div className="webconvoheader">
@@ -98,7 +104,7 @@ export default class WebConvo extends React.Component {
 				</div>
 			</div>
 			<div className="messagescont" style={{ position: 'relative' }}>
-				<MessageBoard messages={this.state.messages} me={this.state.sender} />
+				<MessageBoard messages={this.props.defaultMessages.concat(this.state.messages)} me={this.state.sender} />
 			</div>
 			<div>
 				<MessageBox postMessage={this.postMessage} />
@@ -112,5 +118,6 @@ WebConvo.propTypes = {
 	containerWidth: PropTypes.string,
 	receiveHandler: PropTypes.func,
 	sender: PropTypes.string,
-	sendHandler: PropTypes.func
+	sendHandler: PropTypes.func,
+	defaultMessages: PropTypes.array
 };
