@@ -32,6 +32,9 @@ ReactDOM.render(
 		receiveHandler={null}
 		sender={''}
 		sendHandler={null}
+		defaultMessages={[]}
+		errorClass={''}
+		standAlone={true}
 	/>,
 	document.getElementById('root')
 );

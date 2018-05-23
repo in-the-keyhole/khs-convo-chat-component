@@ -7,6 +7,10 @@ export default class MessageBoard extends React.Component {
 	constructor(props) {
 		super(props);
 		this._scrollToBottom = this._scrollToBottom.bind(this);
+
+		this.state = {
+			messages: []
+		}
 	}
 
 	componentDidMount() {
