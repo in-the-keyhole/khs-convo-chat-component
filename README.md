@@ -36,6 +36,8 @@ This component abstracts away its data transport middleware and, in the absence 
 	receiveHandler={<a_function_or_null>} // see details below
 	sender={"<some_string_identifying_you_the_sender_or_blank>"}
 	sendHandler={<a_function_or_null>} // see details below
+	defaultMessages={<array_or_null>}// see details below
+	errorClass={"some_string_for_styling_input"}// see details below
 />
 ```
 
@@ -104,6 +106,14 @@ The Message (used as an argument in the sendHandler, success callback, and recei
 	text: "<the_message_text>"
 }
 ```
+
+#### defaultMessages
+
+The `defaultMessages` takes an array of messages to preload if you want pass them in
+
+#### errorClass
+
+The `errorClass` takes a string of a class to display when errors occur in the input box
 
 ## Building
 

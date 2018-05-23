@@ -51,7 +51,7 @@ export default class WebConvo extends React.Component {
 			text: message,
 		};
 		if (typeof this.props.sendHandler === 'function') {
-			this.props.sendHandler(json, this._sendSuccessCb(cb), this._sendErrorCb());
+			this.props.sendHandler(json, this._sendSuccessCb(cb), this._sendErrorCb(cb));
 		} else {
 			this.displayMessage(json, () => {
 				cb(true);
@@ -107,7 +107,7 @@ export default class WebConvo extends React.Component {
 				<MessageBoard messages={this.props.defaultMessages.concat(this.state.messages)} me={this.state.sender} />
 			</div>
 			<div>
-				<MessageBox postMessage={this.postMessage} />
+				<MessageBox postMessage={this.postMessage} errorClass={this.props.errorClass}/>
 			</div>
 		</div>);
 	}
@@ -119,5 +119,6 @@ WebConvo.propTypes = {
 	receiveHandler: PropTypes.func,
 	sender: PropTypes.string,
 	sendHandler: PropTypes.func,
-	defaultMessages: PropTypes.array
+	defaultMessages: PropTypes.array,
+	errorClass: PropTypes.string
 };
